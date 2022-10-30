@@ -15,3 +15,6 @@ My implementation of the [Archipelago](https://archipelago.gg) version of Ori an
  - Handle pickups ingame and items received in other worlds
  - Checking if the logic already made for the game is accurate and maybe change a few things based on feedback
  - Maybe more?
+ 
+ #### Contact:
+ Please contact me via Discord. My name and tag are `Kalle#1504`. You can also go onto the [Archipelago Discord Server](https://discord.gg/8Z65BR2) and go into the corresponding channels if you want to ask questions, etc.
