@@ -1,4 +1,6 @@
 ﻿using System;
+using Game;
+using UnityEngine;
 
 namespace OriForestArchipelago
 {
@@ -11,6 +13,12 @@ namespace OriForestArchipelago
             {
                 Main.Logger.Log("Player opened save " + GameController.Instance.SaveGameController.CurrentSlotIndex);
             }
+        }
+
+        public static void OnCharacterSwitched(bool ingame, string character)
+        {
+            if(ingame) Console.WriteLine("[Archipelago Debug] The player took control of a character. (" + character + ")");
+            if(!ingame) Console.WriteLine("[Archipelago Debug] The player lost control of all characters.");
         }
     }
 }

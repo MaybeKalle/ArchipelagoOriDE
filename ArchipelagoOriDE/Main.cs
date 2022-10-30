@@ -2,6 +2,8 @@
 using OriForestArchipelago.Events;
 using UnityModManagerNet;
 using OriForestArchipelago.Settings;
+using UnityEngine;
+
 namespace OriForestArchipelago
 {
     public class Main
@@ -9,7 +11,9 @@ namespace OriForestArchipelago
         public static bool ModActive;
 
         public static ModSettings CurrentModSettings;
+        
         public static GameStateChangeEventClass GameStateChangeEventCheck;
+        public static CharacterSwitchedEventClass CharacterSwitchedEventCheck;
 
         public static UnityModManager.ModEntry.ModLogger Logger;
         
@@ -19,11 +23,11 @@ namespace OriForestArchipelago
             Logger = modEntry.Logger;
             
             GameStateChangeEventCheck = new GameStateChangeEventClass();
+            CharacterSwitchedEventCheck = new CharacterSwitchedEventClass();
+            
             CurrentModSettings = ModSettings.Load<ModSettings>(modEntry);
 
             GameStateChangeEventCheck.GameStateChangeEvent += EventHandler.OnStateChanged;
-
-            
             
             modEntry.OnSaveGUI = OnSaveGUI;
             modEntry.OnToggle = OnToggle;
