@@ -1,5 +1,7 @@
 # Archipelago.gg -  Ori and the Blind Forest: DE
-My implementation of the [Archipelago](https://archipelago.gg) version of Ori and the Blind Forest: Definitive Edition. It is currently in development and **not** production ready. Currently this repository is just for the codebase and not for any kind of release.
+My implementation of the [Archipelago](https://archipelago.gg) version of Ori and the Blind Forest: Definitive Edition. It is currently in development and **not** production ready. 
+
+**Currently this repository is just for the codebase and not for any kind of release. There is no real logic and randomization implemented as of yet!**
 
 ### How to install the mod:
  - To install the mod I have forked and edited the code of the Unity Mod Manager made by [newman55](https://github.com/newman55). You can find the version modified for the mod under [MaybeKalle/unity-mod-manager](https://github.com/MaybeKalle/unity-mod-manager). Using this version is completely optional but comes with the config already modified and a few quality of life improvements.
