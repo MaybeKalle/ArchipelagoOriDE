@@ -2,6 +2,7 @@
 
 using System;
 using System.ComponentModel;
+using Game;
 
 namespace OriForestArchipelago.Events
 {
@@ -15,12 +16,16 @@ namespace OriForestArchipelago.Events
         public GameStateChangeEventClass()
         {
             _worker = new BackgroundWorker();
-            Console.WriteLine("Testing Stage");
             _worker.DoWork += new DoWorkEventHandler(CheckUpdate);
             _worker.RunWorkerAsync();
             
         }
 
+        public void CancelEvent()
+        {
+            this._worker.CancelAsync();
+        }
+        
         private void CheckUpdate(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker bw = sender as BackgroundWorker;
