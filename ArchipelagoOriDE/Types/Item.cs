@@ -16,11 +16,11 @@
         MS,             // Mapstone
         MapStone,       // Mapstone
 
-        EVWind,         // ?
-        EVWater,        // ?
-        EVForlornKey,   // ?
-        EVHoruKey,      // Sunstone
-        EVGinsoKey,     // ?
+        EVWind,         // Wind Escape
+        EVWater,        // Water Escape
+        EVForlornKey,   // Forlorn Key
+        EVHoruKey,      // Horu Key
+        EVGinsoKey,     // Ginso Key
         
         SKBash,         // Skill: Bash
         SKChargeFlame,  // Skill: Charge Flame
