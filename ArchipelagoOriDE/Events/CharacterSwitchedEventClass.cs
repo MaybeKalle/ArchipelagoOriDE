@@ -4,7 +4,7 @@ using Game;
 
 namespace OriForestArchipelago.Events
 {
-    public delegate void CharacterSwitchedEventHandler(bool ingame, string character);
+    public delegate void CharacterSwitchedEventHandler(bool ingame, string character, SeinCharacter seinCharacter);
     
     public class CharacterSwitchedEventClass
     {
@@ -37,11 +37,13 @@ namespace OriForestArchipelago.Events
                     {
                         _ingame = true;
                         Main.Logger.Log("The player entered a character: " + Characters.Current.GetType());
+                        CharacterSwitchedEvent.Invoke(true, Characters.Current.GetType().ToString(), Characters.Sein);
                     }
                     else if (Characters.Current == null && _ingame)
                     {
                         _ingame = false;
                         Main.Logger.Log("The player left a character.");
+                        CharacterSwitchedEvent.Invoke(false, null, null);
                     }
                 }
                 catch (Exception exception)

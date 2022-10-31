@@ -15,7 +15,7 @@ namespace OriForestArchipelago
             }
         }
 
-        public static void OnCharacterSwitched(bool ingame, string character)
+        public static void OnCharacterSwitched(bool ingame, string character, SeinCharacter seinCharacter)
         {
             if(ingame) Console.WriteLine("[Archipelago Debug] The player took control of a character. (" + character + ")");
             if(!ingame) Console.WriteLine("[Archipelago Debug] The player lost control of all characters.");

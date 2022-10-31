@@ -28,6 +28,7 @@ namespace OriForestArchipelago
             CurrentModSettings = ModSettings.Load<ModSettings>(modEntry);
 
             GameStateChangeEventCheck.GameStateChangeEvent += EventHandler.OnStateChanged;
+            CharacterSwitchedEventCheck.CharacterSwitchedEvent += EventHandler.OnCharacterSwitched;
             
             modEntry.OnSaveGUI = OnSaveGUI;
             modEntry.OnToggle = OnToggle;
