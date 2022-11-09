@@ -63,7 +63,7 @@
     <Compile Include="Locations.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MessageQueue.cs" />
-    <Compile Include="Patches\GameControllerPatch.cs" />
+    <Compile Include="Patches\GameProcessPatch.cs" />
     <Compile Include="Patches\MainPatcher.cs" />
     <Compile Include="Patches\PickupPatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

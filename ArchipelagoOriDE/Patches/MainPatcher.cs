@@ -13,11 +13,8 @@ namespace OriForestArchipelago.Patches
 
         public void Patch()
         {
-            MethodInfo updateGameSessionOriginal=
-                AccessTools.Method(typeof(GameController), "FixedUpdate");
-            MethodInfo updateGameSessionNew =
-                AccessTools.Method(typeof(GameControllerPatch), "UpdatePatch");
-            _harmony.Patch(updateGameSessionOriginal, new HarmonyMethod(updateGameSessionNew));
+            PatchPickupEvents();
+            PatchGameProcess();
         }
 
         private void PatchPickupEvents()
@@ -54,6 +51,15 @@ namespace OriForestArchipelago.Patches
             
             original = AccessTools.Method(typeof(SeinPickupProcessor), "OnCollectMapStone");
             patched = AccessTools.Method(typeof(PickupPatcher), "OnCollectMapStonePickup");
+            _harmony.Patch(original, new HarmonyMethod(patched));
+        }
+
+        private void PatchGameProcess()
+        {
+            MethodInfo original, patched;
+            
+            original = AccessTools.Method(typeof(SeinPickupProcessor), "FixedUpdate");
+            patched = AccessTools.Method(typeof(GameProcessPatch), "FixedUpdatePatch");
             _harmony.Patch(original, new HarmonyMethod(patched));
         }
         

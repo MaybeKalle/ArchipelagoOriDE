@@ -1,8 +1,8 @@
 ﻿namespace OriForestArchipelago.Patches
 {
-    public class GameControllerPatch
+    public class GameProcessPatch
     {
-        public static bool UpdatePatch()
+        public static bool FixedUpdatePatch()
         {
             Main.MessageQueue.UpdateMessage();
             return true;
