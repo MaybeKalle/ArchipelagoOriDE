@@ -13,6 +13,7 @@ My implementation of the [Archipelago](https://archipelago.gg) version of Ori an
  - Implement an easy way to connect to a game and to be able to have multiple games running at the same time (i. e. in different saves) without having to change something everytime you want to switch between these games.
  - Implement the logic to communicate between the Archipelago server and the modification
  - Handle pickups ingame and items received in other worlds
+ - (Maybe) Change the item in-game to an Archipelago icon or maybe an item like the Map Stone Fragment (?) to display an item from another player
  - Checking if the logic already made for the game is accurate and maybe change a few things based on feedback
  - Maybe more?
  
