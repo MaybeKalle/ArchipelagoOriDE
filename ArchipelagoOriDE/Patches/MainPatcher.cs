@@ -8,7 +8,7 @@ namespace OriForestArchipelago.Patches
         private Harmony _harmony; 
         public MainPatcher()
         {
-            _harmony = new Harmony("FE6142B8-5A93-4A54-A034-738D603489A2");
+            _harmony = new Harmony("de.maybekalle.archipelago.oribf");
         }
 
         public void Patch()
@@ -49,8 +49,8 @@ namespace OriForestArchipelago.Patches
             patched = AccessTools.Method(typeof(PickupPatcher), "OnCollectRestoreHealthPickupPatch");
             _harmony.Patch(original, new HarmonyMethod(patched));
             
-            original = AccessTools.Method(typeof(SeinPickupProcessor), "OnCollectMapStone");
-            patched = AccessTools.Method(typeof(PickupPatcher), "OnCollectMapStonePickup");
+            original = AccessTools.Method(typeof(SeinPickupProcessor), "OnCollectMapStonePickup");
+            patched = AccessTools.Method(typeof(PickupPatcher), "OnCollectMapStonePickupPatch");
             _harmony.Patch(original, new HarmonyMethod(patched));
         }
 
@@ -58,7 +58,7 @@ namespace OriForestArchipelago.Patches
         {
             MethodInfo original, patched;
             
-            original = AccessTools.Method(typeof(SeinPickupProcessor), "FixedUpdate");
+            original = AccessTools.Method(typeof(GameController), "FixedUpdate");
             patched = AccessTools.Method(typeof(GameProcessPatch), "FixedUpdatePatch");
             _harmony.Patch(original, new HarmonyMethod(patched));
         }

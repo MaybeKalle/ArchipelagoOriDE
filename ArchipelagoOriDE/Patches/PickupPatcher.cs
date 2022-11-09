@@ -48,7 +48,7 @@ namespace OriForestArchipelago.Patches
             return true;
         }
 
-        public static bool OnCollectMapStonePickup(MapStonePickup mapStonePickup)
+        public static bool OnCollectMapStonePickupPatch(MapStonePickup mapStonePickup)
         {
             return true;
         }
