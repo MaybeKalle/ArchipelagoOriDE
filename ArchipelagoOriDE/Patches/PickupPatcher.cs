@@ -14,7 +14,42 @@ namespace OriForestArchipelago.Patches
 
             string keystonePosition = "[" +  keystonePickup.Bounds.center.x + " | " +  keystonePickup.Bounds.center.y + " | " +  keystonePickup.Bounds.center.z + "]";
             
-            Main.MessageQueue.AddMessage("$You$ collected a $Keystone$");
+            Main.MessageQueue.AddMessage("You $collected$ a #Keystone#");
+            return true;
+        }
+
+        public static bool OnCollectSkillPointPickupPatch(SkillPointPickup skillPointPickup)
+        {
+            return true;
+        }
+
+        public static bool OnCollectEnergyOrbPickupPatch(EnergyOrbPickup energyOrbPickup)
+        {
+            return true;
+        }
+
+        public static bool OnCollectMaxEnergyContainerPickupPatch(MaxEnergyContainerPickup energyContainerPickup)
+        {
+            return true;
+        }
+
+        public static bool OnCollectExpOrbPickupPatch(ExpOrbPickup expOrbPickup)
+        {
+            return true;
+        }
+
+        public static bool OnCollectMaxHealthContainerPickupPatch(MaxHealthContainerPickup maxHealthContainerPickup)
+        {
+            return true;
+        }
+
+        public static bool OnCollectRestoreHealthPickupPatch(RestoreHealthPickup restoreHealthPickup)
+        {
+            return true;
+        }
+
+        public static bool OnCollectMapStonePickup(MapStonePickup mapStonePickup)
+        {
             return true;
         }
     }
