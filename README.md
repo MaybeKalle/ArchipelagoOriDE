@@ -1,5 +1,5 @@
 # Archipelago.gg -  Ori and the Blind Forest: DE
-My implementation of the [Archipelago](https://archipelago.gg) version of Ori and the Blind Forest: Definitive Edition. It is currently in development and **not** production ready. 
+My implementation of the [Archipelago](https://archipelago.gg) version of Ori and the Blind Forest: Definitive Edition. It is currently in development and **not** production ready. I will also probably make a fork of the [Archipelago repository](https://github.com/ArchipelagoMW/Archipelago) and implement it there properly, but for now this repository will contain the source for the modification.
 
 **Currently this repository is just for the codebase and not for any kind of release. There is no real logic and randomization implemented as of yet!**
 
