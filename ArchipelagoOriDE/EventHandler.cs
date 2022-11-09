@@ -19,6 +19,8 @@ namespace OriForestArchipelago
         {
             if(ingame) Console.WriteLine("[Archipelago Debug] The player took control of a character. (" + character + ")");
             if(!ingame) Console.WriteLine("[Archipelago Debug] The player lost control of all characters.");
+
+            if (seinCharacter != null) State.SeinCharacter = seinCharacter;
         }
     }
 }
