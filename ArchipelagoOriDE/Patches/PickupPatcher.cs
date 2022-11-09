@@ -10,7 +10,7 @@ namespace OriForestArchipelago.Patches
     {
         public static bool OnCollectKeystonePickupPatch(KeystonePickup keystonePickup)
         {
-            if (!State.IngameRunning()) return true;
+            if (!State.ModActive) return true;
             
             ItemMessageProvider provider = new ItemMessageProvider();
 
@@ -22,49 +22,49 @@ namespace OriForestArchipelago.Patches
 
         public static bool OnCollectSkillPointPickupPatch(SkillPointPickup skillPointPickup)
         {
-            if (!State.IngameRunning()) return true;
+            if (!State.ModActive) return true;
             
             return true;
         }
 
         public static bool OnCollectEnergyOrbPickupPatch(EnergyOrbPickup energyOrbPickup)
         {
-            if (!State.IngameRunning()) return true;
+            if (!State.ModActive) return true;
             
             return true;
         }
 
         public static bool OnCollectMaxEnergyContainerPickupPatch(MaxEnergyContainerPickup energyContainerPickup)
         {
-            if (!State.IngameRunning()) return true;
+            if (!State.ModActive) return true;
             
             return true;
         }
 
         public static bool OnCollectExpOrbPickupPatch(ExpOrbPickup expOrbPickup)
         {
-            if (!State.IngameRunning()) return true;
+            if (!State.ModActive) return true;
             
             return true;
         }
 
         public static bool OnCollectMaxHealthContainerPickupPatch(MaxHealthContainerPickup maxHealthContainerPickup)
         {
-            if (!State.IngameRunning()) return true;
+            if (!State.ModActive) return true;
             
             return true;
         }
 
         public static bool OnCollectRestoreHealthPickupPatch(RestoreHealthPickup restoreHealthPickup)
         {
-            if (!State.IngameRunning()) return true;
+            if (!State.ModActive) return true;
             
             return true;
         }
 
         public static bool OnCollectMapStonePickupPatch(MapStonePickup mapStonePickup)
         {
-            if (!State.IngameRunning()) return true;
+            if (!State.ModActive) return true;
             
             return true;
         }
