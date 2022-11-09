@@ -9,8 +9,6 @@ namespace OriForestArchipelago
 {
     public class Main
     {
-        public static bool ModActive;
-
         public static ModSettings CurrentModSettings;
         public static MainPatcher MainPatcher;
         public static MessageQueue MessageQueue;
@@ -36,6 +34,8 @@ namespace OriForestArchipelago
             
             MainPatcher = new MainPatcher();
             MainPatcher.Patch();
+
+            State.ModActive = modEntry.Active;
             
             modEntry.OnSaveGUI = OnSaveGUI;
             modEntry.OnToggle = OnToggle;
@@ -45,15 +45,7 @@ namespace OriForestArchipelago
         
         static bool OnToggle(UnityModManager.ModEntry modEntry, bool value)
         {
-            if (value)
-            {
-                Console.WriteLine("Activated Archipelago Mod!");
-            }
-            else
-            {
-                Console.WriteLine("Deactivated Archipelago Mod!");
-            }
-            ModActive = value;
+            State.ModActive = value;
             return true;
         }
 
