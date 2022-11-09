@@ -1,5 +1,6 @@
 ﻿using System;
 using OriForestArchipelago.Events;
+using OriForestArchipelago.Patches;
 using UnityModManagerNet;
 using OriForestArchipelago.Settings;
 using UnityEngine;
@@ -11,17 +12,18 @@ namespace OriForestArchipelago
         public static bool ModActive;
 
         public static ModSettings CurrentModSettings;
+        public static MainPatcher MainPatcher;
         
         public static GameStateChangeEventClass GameStateChangeEventCheck;
         public static CharacterSwitchedEventClass CharacterSwitchedEventCheck;
 
         public static UnityModManager.ModEntry.ModLogger Logger;
-        
+
         // Send a response to the mod manager about the launch status, success or not.
         static bool Load(UnityModManager.ModEntry modEntry)
         {
             Logger = modEntry.Logger;
-            
+
             GameStateChangeEventCheck = new GameStateChangeEventClass();
             CharacterSwitchedEventCheck = new CharacterSwitchedEventClass();
             
@@ -29,6 +31,9 @@ namespace OriForestArchipelago
 
             GameStateChangeEventCheck.GameStateChangeEvent += EventHandler.OnStateChanged;
             CharacterSwitchedEventCheck.CharacterSwitchedEvent += EventHandler.OnCharacterSwitched;
+            
+            MainPatcher = new MainPatcher();
+            MainPatcher.Patch();
             
             modEntry.OnSaveGUI = OnSaveGUI;
             modEntry.OnToggle = OnToggle;
