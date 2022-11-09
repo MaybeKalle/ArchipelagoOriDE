@@ -13,6 +13,7 @@ namespace OriForestArchipelago
 
         public static ModSettings CurrentModSettings;
         public static MainPatcher MainPatcher;
+        public static MessageQueue MessageQueue;
         
         public static GameStateChangeEventClass GameStateChangeEventCheck;
         public static CharacterSwitchedEventClass CharacterSwitchedEventCheck;
@@ -28,6 +29,7 @@ namespace OriForestArchipelago
             CharacterSwitchedEventCheck = new CharacterSwitchedEventClass();
             
             CurrentModSettings = ModSettings.Load<ModSettings>(modEntry);
+            MessageQueue = new MessageQueue();
 
             GameStateChangeEventCheck.GameStateChangeEvent += EventHandler.OnStateChanged;
             CharacterSwitchedEventCheck.CharacterSwitchedEvent += EventHandler.OnCharacterSwitched;

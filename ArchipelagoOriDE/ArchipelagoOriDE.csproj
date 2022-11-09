@@ -56,9 +56,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ItemMessageProvider.cs" />
     <Compile Include="EventHandler.cs" />
     <Compile Include="Events\CharacterSwitchedEventClass.cs" />
     <Compile Include="Events\GameStateChangeEventClass.cs" />
+    <Compile Include="Locations.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MessageQueue.cs" />
     <Compile Include="Patches\GameControllerPatch.cs" />
