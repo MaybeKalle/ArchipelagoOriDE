@@ -1,5 +1,7 @@
 ﻿using System;
+using Game;
 using HarmonyLib;
+using OriForestArchipelago.Types;
 using UnityEngine;
 
 namespace OriForestArchipelago.Patches
@@ -8,8 +10,11 @@ namespace OriForestArchipelago.Patches
     {
         public static bool OnCollectKeystonePickupPatch(KeystonePickup keystonePickup)
         {
-            string vector = "[" +  State.SeinCharacter.Position.x + " | " +  State.SeinCharacter.Position.y + " | " +  State.SeinCharacter.Position.z + "]";
-            Main.Logger.Log("Trying to pickup keystone at " + vector);
+            ItemMessageProvider provider = new ItemMessageProvider();
+
+            string keystonePosition = "[" +  keystonePickup.Bounds.center.x + " | " +  keystonePickup.Bounds.center.y + " | " +  keystonePickup.Bounds.center.z + "]";
+            
+            Main.MessageQueue.AddMessage("$You$ collected a $Keystone$");
             return true;
         }
     }

@@ -18,6 +18,12 @@ namespace OriForestArchipelago.Patches
             MethodInfo pickupKeystonePatchNew =
                 AccessTools.Method(typeof(PickupPatcher), "OnCollectKeystonePickupPatch");
             _harmony.Patch(pickupKeystonePatchOriginal, new HarmonyMethod(pickupKeystonePatchNew));
+            
+            MethodInfo updateGameSessionOriginal=
+                AccessTools.Method(typeof(GameController), "FixedUpdate");
+            MethodInfo updateGameSessionNew =
+                AccessTools.Method(typeof(GameControllerPatch), "UpdatePatch");
+            _harmony.Patch(updateGameSessionOriginal, new HarmonyMethod(updateGameSessionNew));
         }
         
         public Harmony Harmony()
