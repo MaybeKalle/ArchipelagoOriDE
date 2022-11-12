@@ -36,13 +36,11 @@ namespace OriForestArchipelago.Events
                     if (Characters.Current != null && !_ingame)
                     {
                         _ingame = true;
-                        Main.Logger.Log("The player entered a character: " + Characters.Current.GetType());
                         CharacterSwitchedEvent.Invoke(true, Characters.Current.GetType().ToString(), Characters.Sein);
                     }
                     else if (Characters.Current == null && _ingame)
                     {
                         _ingame = false;
-                        Main.Logger.Log("The player left a character.");
                         CharacterSwitchedEvent.Invoke(false, null, null);
                     }
                 }
