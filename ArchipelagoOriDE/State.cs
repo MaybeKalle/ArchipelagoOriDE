@@ -10,7 +10,7 @@ namespace OriForestArchipelago
         public static bool ArchipelagoSlot;
         public static bool ModEnabled;
 
-        public static bool SlotActive()
+        public static bool ModShouldInteract()
         {
             return ArchipelagoSlot && ModEnabled;
         }

@@ -6,6 +6,7 @@ namespace OriForestArchipelago.Patches
     {
         public static bool FixedUpdatePatch()
         {
+            if (!State.ModShouldInteract()) return true;
             Main.MessageQueue.UpdateMessage();
             SendQueue.Update();
             DebugKey.OnDebugUpdate();
