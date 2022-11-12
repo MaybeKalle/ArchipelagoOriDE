@@ -35,8 +35,11 @@ namespace OriForestArchipelago
             MainPatcher = new MainPatcher();
             MainPatcher.Patch();
             
+            State.ModEnabled = modEntry.Enabled;
+            
             modEntry.OnSaveGUI += OnSaveGUI;
             modEntry.OnGUI += OnGUI;
+            modEntry.OnToggle += OnToggle;
             return true;
         }
 
@@ -86,6 +89,11 @@ namespace OriForestArchipelago
         {
             CurrentModSettings.Save(modEntry);
         }
-        
+
+        static bool OnToggle(UnityModManager.ModEntry modEntry, bool enabled)
+        {
+            State.ModEnabled = enabled;
+            return true;
+        }
     }
 }

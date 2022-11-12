@@ -1,5 +1,6 @@
 ﻿using System;
 using Game;
+using OriForestArchipelago.Settings;
 using UnityEngine;
 
 namespace OriForestArchipelago
@@ -10,7 +11,17 @@ namespace OriForestArchipelago
         {
             if (state == GameStateMachine.State.Game)
             {
-                Main.Logger.Log("Player opened save " + GameController.Instance.SaveGameController.CurrentSlotIndex);
+                int slot = GameController.Instance.SaveGameController.CurrentSlotIndex;
+                ArchipelagoSlotSettings settings = Main.CurrentModSettings.RandomizerSettings.ArchipelagoSlots[slot];
+                if (settings.Enabled)
+                {
+                    Main.Logger.Log("Detected an Archipelago-enabled save [Slot " + (slot + 1) + "]...");
+                    State.ArchipelagoSlot = true;
+                }
+                else
+                {
+                    State.ArchipelagoSlot = true;
+                }
             }
         }
 

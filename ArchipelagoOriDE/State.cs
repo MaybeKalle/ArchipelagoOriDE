@@ -7,5 +7,12 @@ namespace OriForestArchipelago
         public static bool Ingame;
         public static int SaveSlot;
         public static SeinCharacter SeinCharacter;
+        public static bool ArchipelagoSlot;
+        public static bool ModEnabled;
+
+        public static bool SlotActive()
+        {
+            return ArchipelagoSlot && ModEnabled;
+        }
     }
 }
