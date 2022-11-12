@@ -1,11 +1,13 @@
-﻿namespace OriForestArchipelago.Patches
+﻿using OriForestArchipelago.Network;
+
+namespace OriForestArchipelago.Patches
 {
     public class GameProcessPatch
     {
         public static bool FixedUpdatePatch()
         {
-            if (!State.ModActive) return true;
             Main.MessageQueue.UpdateMessage();
+            SendQueue.Update();
             return true;
         }
     }
