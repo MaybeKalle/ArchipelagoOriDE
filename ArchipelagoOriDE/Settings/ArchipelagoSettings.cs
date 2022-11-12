@@ -6,10 +6,19 @@ namespace OriForestArchipelago.Settings
     [DrawFields(DrawFieldMask.Public)]
     public class ArchipelagoSettings
     {
-        public int Slot = -1;
-        public string Host = "Test";
-        public int Port = 0;
-        public string User = "a";
-        public string Password = "a";
+        public int Slot = 1;
+        public ArchipelagoSlotSettings[] ArchipelagoSlots = new ArchipelagoSlotSettings[]
+        {
+            new ArchipelagoSlotSettings(),
+            new ArchipelagoSlotSettings(),
+            new ArchipelagoSlotSettings(),
+            new ArchipelagoSlotSettings(),
+            new ArchipelagoSlotSettings(),
+            new ArchipelagoSlotSettings(),
+            new ArchipelagoSlotSettings(),
+            new ArchipelagoSlotSettings(),
+            new ArchipelagoSlotSettings(),
+            new ArchipelagoSlotSettings()
+        };
     }
 }

@@ -6,10 +6,10 @@ namespace OriForestArchipelago.Settings
 {
     public class ModSettings : UnityModManager.ModSettings, IDrawable
     {
-        [Draw("Use Archipelago")] public bool EnableRandomizer = true;
         public ArchipelagoSettings RandomizerSettings = new ArchipelagoSettings();
-
-        [Draw("Please copy the provided Settings.xml into your Mods folder.")] public string note;
+        
+        [Draw("Debug Settings", Collapsible = true)]
+        public DebugSettings DebugSettings = new DebugSettings();
 
         public override void Save(UnityModManager.ModEntry modEntry)
         {
