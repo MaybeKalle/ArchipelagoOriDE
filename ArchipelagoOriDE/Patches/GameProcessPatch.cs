@@ -8,6 +8,7 @@ namespace OriForestArchipelago.Patches
         {
             Main.MessageQueue.UpdateMessage();
             SendQueue.Update();
+            DebugKey.OnDebugUpdate();
             return true;
         }
     }

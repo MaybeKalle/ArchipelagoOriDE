@@ -34,8 +34,7 @@ namespace OriForestArchipelago
             
             MainPatcher = new MainPatcher();
             MainPatcher.Patch();
-
-            modEntry.OnUpdate += DebugKey.OnDebugUpdate;
+            
             modEntry.OnSaveGUI += OnSaveGUI;
             modEntry.OnGUI += OnGUI;
             return true;
