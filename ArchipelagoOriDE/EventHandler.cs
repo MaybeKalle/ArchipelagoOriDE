@@ -40,7 +40,16 @@ namespace OriForestArchipelago
 
         public static void OnCharacterSwitched(bool ingame, string character, SeinCharacter seinCharacter)
         {
-            if (seinCharacter != null) State.SeinCharacter = seinCharacter;
+            if (seinCharacter != null)
+            {
+                State.Ingame = true;
+                State.SeinCharacter = seinCharacter;
+            }
+            else
+            {
+                State.SeinCharacter = null;
+                State.Ingame = false;
+            }
         }
     }
 }
