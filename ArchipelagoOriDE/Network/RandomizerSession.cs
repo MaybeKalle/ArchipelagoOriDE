@@ -93,7 +93,15 @@ namespace OriForestArchipelago.Network
             {
                 if (_session.ConnectionInfo.Slot == receiver)
                 {
-                    Main.MessageQueue.AddMessage("You received " + _session.Items.GetItemName(networkItem.Item) + " from " + _session.Players.GetPlayerAlias(sender) + ".");
+                    RandomizerUtility.GiveItem(networkItem.Item);
+                    if (receiver == sender)
+                    {
+                        Main.MessageQueue.CollectedItem(networkItem.Item);
+                    }
+                    else
+                    {
+                        Main.MessageQueue.ReceivedItem(networkItem.Item, _session.Players.GetPlayerAlias(sender));
+                    }
                 }
             }
         }
