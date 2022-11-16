@@ -35,6 +35,8 @@ namespace OriForestArchipelago
             {262168, "Wall Jump"},
             {262169, "the Water Vein"},
         };
+        
+        private static Queue<long> _itemQueue = new Queue<long>();
 
         public static string DisplayNameById(long id)
         {
@@ -42,6 +44,11 @@ namespace OriForestArchipelago
         }
 
         public static void GiveItem(long id)
+        {
+            _itemQueue.Enqueue(id);
+        }
+        
+        private static void ProccessGiveItem(long id)
         {
             switch (id)
             {
@@ -157,6 +164,15 @@ namespace OriForestArchipelago
             amount = amount * (!State.SeinCharacter.PlayerAbilities.SoulEfficiency.HasAbility ? 1 : 2);
             State.SeinCharacter.Level.GainExperience(amount);
             UI.SeinUI.ShakeExperienceBar();
+        }
+
+        public static void Update()
+        {
+            if (State.Ingame && State.SeinCharacter != null)
+            {
+                long nextItem = _itemQueue.Dequeue();
+                ProccessGiveItem(nextItem);
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace OriForestArchipelago.Patches
             Main.MessageQueue.UpdateMessage();
             SendQueue.Update();
             DebugKey.OnDebugUpdate();
+            RandomizerUtility.Update();
             return true;
         }
     }
