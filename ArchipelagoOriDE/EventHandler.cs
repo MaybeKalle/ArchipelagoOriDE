@@ -14,7 +14,7 @@ namespace OriForestArchipelago
             {
                 int slot = GameController.Instance.SaveGameController.CurrentSlotIndex;
                 ArchipelagoSlotSettings settings = Main.CurrentModSettings.RandomizerSettings.ArchipelagoSlots[slot];
-                if (settings.Enabled)
+                if (settings.Enabled && !(Main.RandomizerSession != null && Main.RandomizerSession.IsConnected()))
                 {
                     Main.Logger.Log("Detected an Archipelago-enabled save [Slot " + (slot + 1) + "]...");
                     State.ArchipelagoSlot = true;
