@@ -10,6 +10,7 @@ namespace OriForestArchipelago
         public static SeinCharacter SeinCharacter;
         public static bool ArchipelagoSlot;
         public static bool ModEnabled;
+        public static string ModPath;
 
         public static readonly string GameName = "Ori and the Blind Forest";
 

@@ -8,7 +8,6 @@ namespace OriForestArchipelago.Settings
     {
         public ArchipelagoSettings RandomizerSettings = new ArchipelagoSettings();
         
-        [Draw("Debug Settings", Collapsible = true)]
         public DebugSettings DebugSettings = new DebugSettings();
 
         public override void Save(UnityModManager.ModEntry modEntry)

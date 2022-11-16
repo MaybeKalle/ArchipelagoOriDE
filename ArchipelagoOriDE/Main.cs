@@ -24,10 +24,11 @@ namespace OriForestArchipelago
         static bool Load(UnityModManager.ModEntry modEntry)
         {
             Logger = modEntry.Logger;
+            State.ModPath = modEntry.Path;
 
             GameStateChangeEventCheck = new GameStateChangeEventClass();
             CharacterSwitchedEventCheck = new CharacterSwitchedEventClass();
-            
+
             CurrentModSettings = ModSettings.Load<ModSettings>(modEntry);
             MessageQueue = new MessageQueue();
 

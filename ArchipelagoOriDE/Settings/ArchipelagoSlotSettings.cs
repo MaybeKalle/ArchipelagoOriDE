@@ -6,5 +6,6 @@
         public string Host = "localhost:38281";
         public string User = "User";
         public string Password = "";
+        public string Seed = "";
     }
 }
