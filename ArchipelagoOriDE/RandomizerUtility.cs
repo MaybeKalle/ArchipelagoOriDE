@@ -168,6 +168,7 @@ namespace OriForestArchipelago
 
         public static void Update()
         {
+            if(_itemQueue.Count <= 0) return;
             if (State.Ingame && State.SeinCharacter != null)
             {
                 long nextItem = _itemQueue.Dequeue();
