@@ -17,7 +17,7 @@ namespace OriForestArchipelago
             {262150, "Charge Flame"},
             {262151, "Charge Jump"},
             {262152, "Climb"},
-            {262153, "a Mapstone (2)"},
+            {262153, "a Mapstone Fragment"},
             {262154, "Dash"},
             {262155, "an Energy Cell"},
             {262156, "200 EXP"},
@@ -28,12 +28,12 @@ namespace OriForestArchipelago
             {262161, "Water Event"},
             {262162, "Glide"},
             {262163, "Grenade"},
-            {262164, "the Forlorn Key"},
+            {262164, "the Gumon Seal"},
             {262165, "CS"},
             {262166, "Stomp"},
-            {262167, "Horu Key"},
+            {262167, "the Sunstone"},
             {262168, "Wall Jump"},
-            {262169, "Ginso Key"},
+            {262169, "the Water Vein"},
         };
 
         public static string DisplayNameById(long id)
@@ -63,8 +63,7 @@ namespace OriForestArchipelago
                 case 262148:
                     // TODO: Add plant
                 case 262149:
-                    State.SeinCharacter.Inventory.CollectMapstone(1);
-                    UI.SeinUI.ShakeMapstones();
+                    UnlockMap();
                     break;
                 case 262150:
                     AddAbility(AbilityType.ChargeFlame);
@@ -143,6 +142,12 @@ namespace OriForestArchipelago
         
         // TODO: Implement method for world events
         private static void TriggerWorldEvent()
+        {
+            
+        }
+
+        // TODO: Unlock Map
+        private static void UnlockMap()
         {
             
         }
