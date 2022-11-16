@@ -81,6 +81,7 @@
     <Compile Include="Patches\MainPatcher.cs" />
     <Compile Include="Patches\PickupPatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomizerUtility.cs" />
     <Compile Include="Settings\ArchipelagoSettings.cs" />
     <Compile Include="Settings\ArchipelagoSlotSettings.cs" />
     <Compile Include="Settings\DebugKeyAction.cs" />
