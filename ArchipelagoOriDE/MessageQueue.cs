@@ -47,6 +47,7 @@ namespace OriForestArchipelago
         
         public void UpdateMessage()
         {
+            if (!State.Ingame || State.SeinCharacter == null) return;
             if (CurrentQueueTime <= 0)
             {
                 if (queuedMessages.Count == 0) return;
