@@ -57,8 +57,6 @@ namespace OriForestArchipelago.Network
                 Main.Logger.Critical("Failed to connect to the Archipelago server: "+ e.Message);
                 throw;
             }
-
-            return false;
         }
         
         private void LogMessage(LogMessage message)
@@ -67,8 +65,7 @@ namespace OriForestArchipelago.Network
             int receiver = -1;
             int sender = -1;
             NetworkItem networkItem = new NetworkItem();
-            bool found = false;
-            
+
             Main.Logger.Log(message.ToString());
 
             if (message is ItemSendLogMessage)
@@ -78,7 +75,6 @@ namespace OriForestArchipelago.Network
                 receiver = itemSendLogMessage.ReceivingPlayerSlot;
                 sender = itemSendLogMessage.SendingPlayerSlot;
                 networkItem = itemSendLogMessage.Item;
-                found = true;
             }
 
             if (message is HintItemSendLogMessage)
@@ -88,7 +84,6 @@ namespace OriForestArchipelago.Network
                 receiver = hintItemSendLogMessage.ReceivingPlayerSlot;
                 sender = hintItemSendLogMessage.SendingPlayerSlot;
                 networkItem = hintItemSendLogMessage.Item;
-                found = hintItemSendLogMessage.IsFound;
             }
 
             if (send)

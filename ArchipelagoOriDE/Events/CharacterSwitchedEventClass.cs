@@ -27,7 +27,6 @@ namespace OriForestArchipelago.Events
         {
             BackgroundWorker bw = sender as BackgroundWorker;
             bool _ingame = false;
-            string _name = "";
 
             while (!bw.CancellationPending)
             {
