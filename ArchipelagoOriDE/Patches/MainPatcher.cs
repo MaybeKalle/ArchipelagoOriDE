@@ -15,6 +15,7 @@ namespace OriForestArchipelago.Patches
         {
             PatchPickupEvents();
             PatchGameProcess();
+            PlayerSaveLoadActions();
         }
 
         private void PatchPickupEvents()
@@ -60,6 +61,19 @@ namespace OriForestArchipelago.Patches
             
             original = AccessTools.Method(typeof(GameController), "FixedUpdate");
             patched = AccessTools.Method(typeof(GameProcessPatch), "FixedUpdatePatch");
+            _harmony.Patch(original, new HarmonyMethod(patched));
+        }
+        
+        private void PlayerSaveLoadActions()
+        {
+            MethodInfo original, patched;
+
+            original = AccessTools.Method(typeof(SaveGameController), "PerformSave");
+            patched = AccessTools.Method(typeof(SaveGameControllerPatch), "PerformSavePatch");
+            _harmony.Patch(original, new HarmonyMethod(patched));
+            
+            original = AccessTools.Method(typeof(SeinDeathsManager), "OnDeath");
+            patched = AccessTools.Method(typeof(SeinDeathsManagerPatcher), "OnDeathPatch");
             _harmony.Patch(original, new HarmonyMethod(patched));
         }
         
