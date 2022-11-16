@@ -68,6 +68,8 @@ namespace OriForestArchipelago.Network
             int sender = -1;
             NetworkItem networkItem = new NetworkItem();
             bool found = false;
+            
+            Main.Logger.Log(message.ToString());
 
             if (message is ItemSendLogMessage)
             {
