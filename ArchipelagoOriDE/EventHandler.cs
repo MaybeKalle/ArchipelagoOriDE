@@ -1,5 +1,6 @@
 ﻿using System;
 using Game;
+using OriForestArchipelago.Network;
 using OriForestArchipelago.Settings;
 using UnityEngine;
 
@@ -17,7 +18,10 @@ namespace OriForestArchipelago
                 {
                     Main.Logger.Log("Detected an Archipelago-enabled save [Slot " + (slot + 1) + "]...");
                     State.ArchipelagoSlot = true;
-                }
+
+                    Main.RandomizerSession = new RandomizerSession(settings.Host);
+                    Main.RandomizerSession.Connect(settings.User);
+                } 
                 else
                 {
                     State.ArchipelagoSlot = true;

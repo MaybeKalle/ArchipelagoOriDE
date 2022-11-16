@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 namespace OriForestArchipelago
 {
@@ -9,6 +10,8 @@ namespace OriForestArchipelago
         public static SeinCharacter SeinCharacter;
         public static bool ArchipelagoSlot;
         public static bool ModEnabled;
+
+        public static readonly string GameName = "Ori and the Blind Forest";
 
         public static bool ModShouldInteract()
         {

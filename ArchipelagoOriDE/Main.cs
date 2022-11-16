@@ -1,5 +1,6 @@
 ﻿using System;
 using OriForestArchipelago.Events;
+using OriForestArchipelago.Network;
 using OriForestArchipelago.Patches;
 using UnityModManagerNet;
 using OriForestArchipelago.Settings;
@@ -17,6 +18,7 @@ namespace OriForestArchipelago
         public static CharacterSwitchedEventClass CharacterSwitchedEventCheck;
 
         public static UnityModManager.ModEntry.ModLogger Logger;
+        public static RandomizerSession RandomizerSession;
 
         // Send a response to the mod manager about the launch status, success or not.
         static bool Load(UnityModManager.ModEntry modEntry)
