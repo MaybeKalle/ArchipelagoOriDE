@@ -29,7 +29,24 @@ namespace OriForestArchipelago
             provider.SetMessage(message);
             queuedMessages.Enqueue(provider);
         }
+        
+        public void AddMessage(MessageProvider provider, Vector3 position)
+        {
+            queuedMessages.Enqueue(new KeyValuePair<MessageProvider, Vector3>(provider, position));
+        }
+        public void AddMessage(string message, Vector3 position)
+        {
+            ItemMessageProvider provider = new ItemMessageProvider();
+            provider.SetMessage(message);
+            queuedMessages.Enqueue(new KeyValuePair<MessageProvider, Vector3>(provider, position));
+        }
 
+
+        public void Clear()
+        {
+            queuedMessages.Clear();
+        }
+        
         public void UpdateMessage()
         {
             if (CurrentQueueTime <= 0)

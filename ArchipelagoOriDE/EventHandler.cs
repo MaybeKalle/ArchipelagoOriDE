@@ -27,6 +27,15 @@ namespace OriForestArchipelago
                     State.ArchipelagoSlot = true;
                 }
             }
+            else if (Main.RandomizerSession != null &&
+                     (state == GameStateMachine.State.StartScreen || state == GameStateMachine.State.TitleScreen) &&
+                     Main.RandomizerSession.IsConnected())
+            {
+                Main.RandomizerSession.Disconnect();
+                Main.RandomizerSession = null;
+                Main.MessageQueue.Clear();
+                Main.Logger.Log("Disconnected from Archipelago server.");
+            }
         }
 
         public static void OnCharacterSwitched(bool ingame, string character, SeinCharacter seinCharacter)
