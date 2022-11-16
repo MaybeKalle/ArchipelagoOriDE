@@ -44,5 +44,15 @@ namespace OriForestArchipelago
                 CurrentQueueTime--;
             }
         }
+
+        public void ReceivedItem(long item, string sender)
+        {
+            AddMessage("$" + sender + "$ sent you #" + RandomizerUtility.DisplayNameById(item) + "#.");
+        }
+
+        public void CollectedItem(long item)
+        {
+            AddMessage("$You$ found your #" + RandomizerUtility.DisplayNameById(item) + "#.");
+        }
     }
 }
