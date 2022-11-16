@@ -8,9 +8,9 @@ namespace OriForestArchipelago
 {
     public class MessageQueue
     {
-        private Queue<MessageProvider> queuedMessages = new Queue<MessageProvider>();
+        private Queue<KeyValuePair<MessageProvider, Vector3>> queuedMessages = new Queue<KeyValuePair<MessageProvider, Vector3>>();
         private readonly int QueueTime = 240;
-        private readonly Vector3 InformationPosition = OnScreenPositions.BottomRight;
+        private readonly Vector3 DefaultInformationPosition = OnScreenPositions.BottomRight;
 
         private int CurrentQueueTime = 0;
 
@@ -21,13 +21,11 @@ namespace OriForestArchipelago
 
         public void AddMessage(MessageProvider provider)
         {
-            queuedMessages.Enqueue(provider);
+            AddMessage(provider, DefaultInformationPosition);
         }
         public void AddMessage(string message)
         {
-            ItemMessageProvider provider = new ItemMessageProvider();
-            provider.SetMessage(message);
-            queuedMessages.Enqueue(provider);
+            AddMessage(message, DefaultInformationPosition);
         }
         
         public void AddMessage(MessageProvider provider, Vector3 position)
@@ -54,7 +52,7 @@ namespace OriForestArchipelago
                 if (queuedMessages.Count == 0) return;
                 CurrentQueueTime = QueueTime;
                 var item = queuedMessages.Dequeue();
-                UI.MessageController.ShowHintMessage(item, InformationPosition, (QueueTime / 90f));
+                UI.MessageController.ShowHintMessage(item.Key, item.Value, (QueueTime / 90f));
             }
             else
             {
