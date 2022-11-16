@@ -52,7 +52,10 @@ namespace OriForestArchipelago
 
         public void CollectedItem(long item)
         {
-            AddMessage("$You$ found your #" + RandomizerUtility.DisplayNameById(item) + "#.");
+            string itemName = RandomizerUtility.DisplayNameById(item);
+            if (itemName.StartsWith("an ")) itemName = itemName.Substring(3);
+            else if (itemName.StartsWith("a ")) itemName = itemName.Substring(2);
+            AddMessage("$You$ found your #" + itemName + "#.");
         }
     }
 }
