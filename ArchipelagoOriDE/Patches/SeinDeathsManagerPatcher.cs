@@ -4,7 +4,7 @@
     {
         public static bool OnDeathPatch()
         {
-            Main.RandomizerSession.RefreshItems();
+            Main.RandomizerSession.RefreshItems(false);
             return true;
         }
     }

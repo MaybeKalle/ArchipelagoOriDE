@@ -125,7 +125,8 @@ namespace OriForestArchipelago.Network
             Main.Logger.Log("Disconnected from the Archipelago server.");
         }
 
-        public void RefreshItems()
+        
+        public void RefreshItems(bool _message = true)
         {
             if (!_connected) return;
             ReadOnlyCollection<NetworkItem> items = _session.Items.AllItemsReceived;
@@ -137,7 +138,7 @@ namespace OriForestArchipelago.Network
                 {
                     Main.Logger.Log("Received '" + RandomizerUtility.DisplayNameById(item.Item) + "' from " + _session.Players.GetPlayerAlias(item.Player));
                     RandomizerUtility.GiveItem(item.Item);
-                    Main.MessageQueue.ReceivedItem(item.Item, _session.Players.GetPlayerAlias(item.Player));
+                    if(_message) Main.MessageQueue.ReceivedItem(item.Item, _session.Players.GetPlayerAlias(item.Player));
                 }
                 _receivedItems[i] = items[i].Item;
             }
