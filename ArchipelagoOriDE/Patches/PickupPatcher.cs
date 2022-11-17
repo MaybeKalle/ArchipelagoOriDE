@@ -1,10 +1,4 @@
-﻿using System;
-using Game;
-using HarmonyLib;
-using OriForestArchipelago.Types;
-using UnityEngine;
-
-namespace OriForestArchipelago.Patches
+﻿namespace OriForestArchipelago.Patches
 {
     public class PickupPatcher
     {
