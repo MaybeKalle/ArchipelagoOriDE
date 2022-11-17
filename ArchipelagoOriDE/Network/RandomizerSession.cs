@@ -7,8 +7,6 @@ using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 using Newtonsoft.Json;
-using UnityEngine;
-using UnityEngine.Networking.Match;
 
 namespace OriForestArchipelago.Network
 {
@@ -18,6 +16,7 @@ namespace OriForestArchipelago.Network
         private LoginSuccessful _loginSuccessful;
         private string _host;
         private Dictionary<int, long> _receivedItems;
+        private bool _connected;
 
         public RandomizerSession(string host)
         {
@@ -46,6 +45,7 @@ namespace OriForestArchipelago.Network
                 {
                     _loginSuccessful = (LoginSuccessful)result;
                     Main.Logger.Log("Connected to the Archipelago server " + _host + " as " + username + " (Slot " + (_loginSuccessful.Slot + 1) + ").");
+                    _connected = true;
                     RefreshItems();
                     return true;
                 }
@@ -57,11 +57,13 @@ namespace OriForestArchipelago.Network
                     {
                         Main.Logger.Critical(" - " + error);
                     }
+                    GameController.Instance.RestartGame();
                     return false;
                 }
             }
             catch (Exception e)
             {
+                GameController.Instance.RestartGame();
                 Main.Logger.Critical("Failed to connect to the Archipelago server: "+ e.Message);
                 throw;
             }
@@ -125,6 +127,7 @@ namespace OriForestArchipelago.Network
 
         public void RefreshItems()
         {
+            if (!_connected) return;
             ReadOnlyCollection<NetworkItem> items = _session.Items.AllItemsReceived;
             Dictionary<int, long> savedItems = SavedItems(_session.RoomState.Seed);
             for (int i = 0; i < items.Count; i++)
@@ -160,11 +163,13 @@ namespace OriForestArchipelago.Network
 
         public void SaveItems()
         {
+            if (!_connected) return;
             WriteSeed(_session.RoomState.Seed, _receivedItems);
         }
         
         public void AddItemToSaveList(long item)
         {
+            if (!_connected) return;
             Dictionary<int, long> items = SavedItems(_session.RoomState.Seed);
             int index = 0;
             while (items.ContainsKey(index))
@@ -176,6 +181,7 @@ namespace OriForestArchipelago.Network
         
         public void WriteSeed(string seed, Dictionary<int, long> dictionary)
         {
+            if (!_connected) return;
             string json = JsonConvert.SerializeObject(dictionary);
             string saveDir = Path.Combine(State.ModPath, "seeds");
             string saveFile = Path.Combine(saveDir, "A_" + seed + ".json");
