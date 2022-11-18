@@ -57,13 +57,18 @@ namespace OriForestArchipelago.Network
                     {
                         Main.Logger.Critical(" - " + error);
                     }
+
+                    State.Restarting = true;
                     GameController.Instance.RestartGame();
+                    Main.MessageQueue.AddMenuMessage("Failed to connect to the Archipelago server.", OnScreenPositions.MiddleCenter);
                     return false;
                 }
             }
             catch (Exception e)
             {
+                State.Restarting = true;
                 GameController.Instance.RestartGame();
+                Main.MessageQueue.AddMenuMessage("Failed to connect to the Archipelago server.", OnScreenPositions.MiddleCenter);
                 Main.Logger.Critical("Failed to connect to the Archipelago server: "+ e.Message);
                 throw;
             }
