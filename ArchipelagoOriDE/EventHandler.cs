@@ -17,14 +17,13 @@ namespace OriForestArchipelago
                 if (settings.Enabled && !(Main.RandomizerSession != null && Main.RandomizerSession.IsConnected()))
                 {
                     Main.Logger.Log("Detected an Archipelago-enabled save [Slot " + (slot + 1) + "]...");
-                    State.ArchipelagoSlot = true;
 
                     Main.RandomizerSession = new RandomizerSession(settings.Host);
-                    Main.RandomizerSession.Connect(settings.User);
+                    State.ArchipelagoSlot = Main.RandomizerSession.Connect(settings.User);
                 } 
                 else
                 {
-                    State.ArchipelagoSlot = true;
+                    State.ArchipelagoSlot = false;
                 }
             }
             else if (Main.RandomizerSession != null &&
