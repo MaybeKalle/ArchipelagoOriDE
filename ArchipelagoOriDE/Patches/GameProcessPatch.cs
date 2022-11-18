@@ -12,5 +12,11 @@ namespace OriForestArchipelago.Patches
             RandomizerUtility.Update();
             return true;
         }
+
+        public static bool OnFinishedRestartingPatch()
+        {
+            State.Restarting = false;
+            return true;
+        }
     }
 }

@@ -62,6 +62,10 @@ namespace OriForestArchipelago.Patches
             original = AccessTools.Method(typeof(GameController), "FixedUpdate");
             patched = AccessTools.Method(typeof(GameProcessPatch), "FixedUpdatePatch");
             _harmony.Patch(original, new HarmonyMethod(patched));
+            
+            original = AccessTools.Method(typeof(GameController), "OnFinishedRestarting");
+            patched = AccessTools.Method(typeof(GameProcessPatch), "OnFinishedRestartingPatch");
+            _harmony.Patch(original, new HarmonyMethod(patched));
         }
         
         private void PlayerSaveLoadActions()
