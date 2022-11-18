@@ -4,6 +4,8 @@
     {
         None,
         RevealMap,
-        OutputLocations
+        OutputLocations,
+        OutputState,
+        
     }
 }
