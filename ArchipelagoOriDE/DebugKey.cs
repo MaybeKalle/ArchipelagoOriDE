@@ -22,7 +22,7 @@ namespace OriForestArchipelago
                         Main.Logger.Log("   - Restarting: " + State.Restarting);
                         Main.Logger.Log("   ");
                         Main.Logger.Log("   - Message Queue: " + Main.MessageQueue.GetGameMessageSize());
-                        Main.Logger.Log("   - Menu Message Queue: " + Main.MessageQueue.GetGameMessageSize());
+                        Main.Logger.Log("   - Menu Message Queue: " + Main.MessageQueue.GetMenuMessageSize());
                         break;
                     default:
                         break;
