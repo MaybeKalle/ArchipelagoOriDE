@@ -6,6 +6,6 @@
         RevealMap,
         OutputLocations,
         OutputState,
-        
+        DisplayLocation,
     }
 }

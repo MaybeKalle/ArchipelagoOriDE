@@ -24,6 +24,12 @@ namespace OriForestArchipelago
                         Main.Logger.Log("   - Message Queue: " + Main.MessageQueue.GetGameMessageSize());
                         Main.Logger.Log("   - Menu Message Queue: " + Main.MessageQueue.GetMenuMessageSize());
                         break;
+                    case DebugKeyAction.DisplayLocation:
+                        string area = GameWorld.Instance.FindAreaFromPosition(State.SeinCharacter.Position)
+                            .AreaNameString;
+                        Main.MessageQueue.AddMessage(area + ": " + State.SeinCharacter.Position.x + ", " +
+                                                     State.SeinCharacter.Position.y, OnScreenPositions.TopCenter);
+                        break;
                     default:
                         break;
                 }
