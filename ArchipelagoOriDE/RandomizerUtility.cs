@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game;
+using Newtonsoft.Json.Linq;
 
 namespace OriForestArchipelago
 {
@@ -150,7 +151,6 @@ namespace OriForestArchipelago
         // TODO: Implement method for world events
         private static void TriggerWorldEvent()
         {
-            
         }
 
         // TODO: Unlock Map
@@ -174,6 +174,17 @@ namespace OriForestArchipelago
                 long nextItem = _itemQueue.Dequeue();
                 ProccessGiveItem(nextItem);
             }
+        }
+        
+        public static JObject GenerateObjectJson(PickupBase pickupBase)
+        {
+            JObject jObject = new JObject();
+            jObject.Add("type", pickupBase.name);
+            jObject.Add("id", pickupBase.MoonGuid.GetHashCode());
+            jObject.Add("location", pickupBase.Bounds.center.x + " | " + pickupBase.Bounds.center.y + " | " + pickupBase.Bounds.center.z);
+            jObject.Add("area", GameWorld.Instance.FindAreaFromPosition(pickupBase.Bounds.center).AreaNameString);
+            if(pickupBase.GetType() == (typeof(ExpOrbPickup))) jObject.Add("size", ((ExpOrbPickup)pickupBase).MessageType.ToString());
+            return jObject;
         }
     }
 }
