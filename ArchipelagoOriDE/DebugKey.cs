@@ -27,10 +27,8 @@ namespace OriForestArchipelago
                     case DebugKeyAction.DisplayLocation:
                         string area = GameWorld.Instance.FindAreaFromPosition(State.SeinCharacter.Position)
                             .AreaNameString;
-                        Main.MessageQueue.AddMessage(area + ": " + State.SeinCharacter.Position.x + ", " +
+                        Main.MessageQueue.AddMessage("$" + area + "$: " + State.SeinCharacter.Position.x + ", " +
                                                      State.SeinCharacter.Position.y, OnScreenPositions.TopCenter);
-                        break;
-                    default:
                         break;
                 }
             }
