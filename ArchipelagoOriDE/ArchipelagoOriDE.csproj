@@ -35,8 +35,8 @@
     <Reference Include="0Harmony">
       <HintPath>E:\SteamLibrary\steamapps\common\Ori DE\oriDE_Data\Managed\UnityModManager\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="Archipelago.MultiClient.Net, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Archipelago.MultiClient.Net.4.0.0\lib\net35\Archipelago.MultiClient.Net.dll</HintPath>
+    <Reference Include="Archipelago.MultiClient.Net, Version=4.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Archipelago.MultiClient.Net.4.1.2\lib\net35\Archipelago.MultiClient.Net.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>E:\SteamLibrary\steamapps\common\Ori DE\oriDE_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -44,14 +44,14 @@
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>E:\SteamLibrary\steamapps\common\Ori DE\oriDE_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net35\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Archipelago.MultiClient.Net.4.1.2\lib\net35\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <Reference Include="System">
+      <HintPath>C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="UnityEngine">
       <HintPath>E:\SteamLibrary\steamapps\common\Ori DE\oriDE_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
@@ -62,7 +62,7 @@
       <HintPath>E:\SteamLibrary\steamapps\common\Ori DE\oriDE_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp, Version=1.0.2.34775, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
-      <HintPath>..\packages\Archipelago.MultiClient.Net.4.0.0\lib\net35\websocket-sharp.dll</HintPath>
+      <HintPath>..\packages\Archipelago.MultiClient.Net.4.1.2\lib\net35\websocket-sharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
