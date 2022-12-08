@@ -7,6 +7,7 @@ using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 using Newtonsoft.Json;
+using UnityEngine;
 
 namespace OriForestArchipelago.Network
 {
@@ -130,6 +131,10 @@ namespace OriForestArchipelago.Network
             Main.Logger.Log("Disconnected from the Archipelago server.");
         }
 
+        public string getLocationName(int id)
+        {
+            return this._session.Locations.GetLocationNameFromId(id);
+        }
         
         public void RefreshItems(bool _message = true)
         {
@@ -167,6 +172,15 @@ namespace OriForestArchipelago.Network
             }
         }
 
+        public void CollectedCheck(Vector3 location)
+        {
+            long id = RandomizerUtility.GetLocationIdFromLocationVector(location);
+            if (id == -1) return;
+            if (_session == null || !_connected) return;
+            if (_session.Locations.GetLocationNameFromId(id) == "Unknown") Main.Logger.Error("Unknown location id: " + id);
+            _session.Locations.CompleteLocationChecks(id);
+        }
+        
         public void SaveItems()
         {
             if (!_connected) return;
