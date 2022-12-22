@@ -53,6 +53,10 @@ namespace OriForestArchipelago.Patches
             original = AccessTools.Method(typeof(SeinPickupProcessor), "OnCollectMapStonePickup");
             patched = AccessTools.Method(typeof(PickupPatcher), "OnCollectMapStonePickupPatch");
             _harmony.Patch(original, new HarmonyMethod(patched));
+            
+            original = AccessTools.Method(typeof(GetAbilityPedestal), "ActivatePedestal");
+            patched = AccessTools.Method(typeof(GetAbilityPedestalPatcher), "ActivatePedestalPatch");
+            _harmony.Patch(original, new HarmonyMethod(patched));
         }
 
         private void PatchGameProcess()

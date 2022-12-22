@@ -78,6 +78,7 @@
     <Compile Include="Network\RandomizerSession.cs" />
     <Compile Include="Network\SendQueue.cs" />
     <Compile Include="Patches\GameProcessPatch.cs" />
+    <Compile Include="Patches\GetAbilityPedestalPatcher.cs" />
     <Compile Include="Patches\MainPatcher.cs" />
     <Compile Include="Patches\PickupPatcher.cs" />
     <Compile Include="Patches\SaveGameControllerPatch.cs" />
