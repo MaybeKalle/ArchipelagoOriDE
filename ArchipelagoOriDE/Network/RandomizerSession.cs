@@ -176,20 +176,16 @@ namespace OriForestArchipelago.Network
 
         public void CollectedCheck(Vector3 location)
         {
-            long id = RandomizerUtility.GetLocationIdFromLocationVector(location);
-            if (id == -1) return;
-            if (_session == null || !_connected) return;
-            if (_session.Locations.GetLocationNameFromId(id) == "Unknown")
-            {
-                Main.Logger.Error("Unknown location id: " + id);
-                return;
-            }
-            _session.Locations.CompleteLocationChecks(id);
+            HandleCollection(RandomizerUtility.GetLocationIdFromLocationVector(location));
         }
         
         public void CollectedCheck(AbilityType ability)
         {
-            long id = RandomizerUtility.GetLocationIdFromAbilityTree(ability);
+            HandleCollection(RandomizerUtility.GetLocationIdFromAbilityTree(ability));
+        }
+
+        private void HandleCollection(long id)
+        {
             if (id == -1) return;
             if (_session == null || !_connected) return;
             if (_session.Locations.GetLocationNameFromId(id) == "Unknown")
