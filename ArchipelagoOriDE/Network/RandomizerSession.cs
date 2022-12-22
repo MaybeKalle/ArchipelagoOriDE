@@ -104,17 +104,19 @@ namespace OriForestArchipelago.Network
 
             if (send)
             {
-                if (_session.ConnectionInfo.Slot == receiver)
+                if (_session.ConnectionInfo.Slot == receiver && _session.ConnectionInfo.Slot != sender)
                 {
                     RandomizerUtility.GiveItem(networkItem.Item);
-                    if (receiver == sender)
-                    {
-                        Main.MessageQueue.CollectedItem(networkItem.Item);
-                    }
-                    else
-                    {
-                        Main.MessageQueue.ReceivedItem(networkItem.Item, _session.Players.GetPlayerAlias(sender));
-                    }
+                    Main.MessageQueue.ReceivedItem(networkItem.Item, _session.Players.GetPlayerAlias(sender));
+                }
+                else if (_session.ConnectionInfo.Slot == receiver && _session.ConnectionInfo.Slot == sender)
+                {
+                    RandomizerUtility.GiveItem(networkItem.Item);
+                    Main.MessageQueue.CollectedItem(networkItem.Item);
+                }
+                else if (_session.ConnectionInfo.Slot != receiver && _session.ConnectionInfo.Slot == sender)
+                {
+                    Main.MessageQueue.SentItem(networkItem.Item, _session.Players.GetPlayerAlias(receiver));
                 }
             }
         }

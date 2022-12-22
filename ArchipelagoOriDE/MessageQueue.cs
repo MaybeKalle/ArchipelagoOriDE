@@ -11,14 +11,9 @@ namespace OriForestArchipelago
         private Queue<KeyValuePair<MessageProvider, Vector3>> menuMessages = new Queue<KeyValuePair<MessageProvider, Vector3>>();
         private Queue<KeyValuePair<MessageProvider, Vector3>> queuedMessages = new Queue<KeyValuePair<MessageProvider, Vector3>>();
         private readonly int QueueTime = 240;
-        private readonly Vector3 DefaultInformationPosition = OnScreenPositions.BottomRight;
+        private readonly Vector3 DefaultInformationPosition = OnScreenPositions.TopCenter;
 
         private int CurrentQueueTime = 0;
-
-        public MessageQueue()
-        {
-            
-        }
 
         public void AddMessage(MessageProvider provider)
         {
@@ -106,6 +101,11 @@ namespace OriForestArchipelago
         public void ReceivedItem(long item, string sender)
         {
             AddMessage("$" + sender + "$ sent you #" + RandomizerUtility.DisplayNameById(item) + "#.");
+        }
+        
+        public void SentItem(long item, string receiver)
+        {
+            AddMessage("You sent #" + RandomizerUtility.DisplayNameById(item) + "# to $" + receiver + "$.");
         }
 
         public void CollectedItem(long item)
