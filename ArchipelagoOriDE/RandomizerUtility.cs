@@ -242,6 +242,21 @@ namespace OriForestArchipelago
                 { new KeyValuePair<long, long>(-355, 65), 262336 },
             };
 
+        private static readonly Dictionary<AbilityType, long> AbilityDictionary =
+            new Dictionary<AbilityType, long>()
+            {
+                { AbilityType.Bash, 262356 },
+                { AbilityType.ChargeFlame , 262354 },
+                { AbilityType.ChargeJump, 262360 },
+                { AbilityType.Climb, 262359 },
+                { AbilityType.Dash, 262362 },
+                { AbilityType.DoubleJump, 262355 },
+                { AbilityType.Glide, 262358 },
+                { AbilityType.Grenade, 262361 },
+                { AbilityType.Stomp, 262357 },
+                { AbilityType.WallJump, 262353 },
+            };
+
         private static Queue<long> _itemQueue = new Queue<long>();
 
         public static string DisplayNameById(long id)
@@ -400,6 +415,15 @@ namespace OriForestArchipelago
             if (LocationDictionary.ContainsKey(key))
             {
                 return LocationDictionary[key];
+            }
+            return -1;
+        }
+
+        public static long GetLocationIdFromAbilityTree(AbilityType type)
+        {
+            if (AbilityDictionary.ContainsKey(type))
+            {
+                return AbilityDictionary[type];
             }
             return -1;
         }
