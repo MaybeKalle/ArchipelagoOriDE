@@ -11,10 +11,17 @@ namespace OriForestArchipelago
         private Queue<KeyValuePair<MessageProvider, Vector3>> menuMessages = new Queue<KeyValuePair<MessageProvider, Vector3>>();
         private Queue<KeyValuePair<MessageProvider, Vector3>> queuedMessages = new Queue<KeyValuePair<MessageProvider, Vector3>>();
         private readonly int QueueTime = 240;
-        private readonly Vector3 DefaultInformationPosition = OnScreenPositions.TopCenter;
+        private readonly Vector3 DefaultInformationPosition;
 
         private int CurrentQueueTime = 0;
 
+        public MessageQueue()
+        {
+            Vector3 position = OnScreenPositions.TopCenter;
+            position.y += 0.5f;
+            DefaultInformationPosition = position;
+        }
+        
         public void AddMessage(MessageProvider provider)
         {
             AddMessage(provider, DefaultInformationPosition);
