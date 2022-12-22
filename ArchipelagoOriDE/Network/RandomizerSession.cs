@@ -81,9 +81,7 @@ namespace OriForestArchipelago.Network
             int receiver = -1;
             int sender = -1;
             NetworkItem networkItem = new NetworkItem();
-
-            Main.Logger.Log(message.ToString());
-
+            
             if (message is ItemSendLogMessage)
             {
                 ItemSendLogMessage itemSendLogMessage = (ItemSendLogMessage)message;
@@ -101,6 +99,8 @@ namespace OriForestArchipelago.Network
                 sender = hintItemSendLogMessage.SendingPlayerSlot;
                 networkItem = hintItemSendLogMessage.Item;
             }
+            
+            Main.Logger.Log(message.ToString() + " | R:" + receiver + " | S:" + sender + " | " + send);
 
             if (send)
             {
