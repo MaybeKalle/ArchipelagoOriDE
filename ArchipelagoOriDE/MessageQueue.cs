@@ -110,9 +110,9 @@ namespace OriForestArchipelago
             AddMessage("$" + sender + "$ sent you #" + RandomizerUtility.DisplayNameById(item) + "#.");
         }
         
-        public void SentItem(long item, string receiver)
+        public void SentItem(string item, string receiver)
         {
-            AddMessage("You sent #" + RandomizerUtility.DisplayNameById(item) + "# to $" + receiver + "$.");
+            AddMessage("You sent #" + item.Replace("_", " ") + "# to $" + receiver + "$.");
         }
 
         public void CollectedItem(long item)

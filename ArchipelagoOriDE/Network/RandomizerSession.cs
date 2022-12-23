@@ -116,7 +116,7 @@ namespace OriForestArchipelago.Network
                 }
                 else if (_session.ConnectionInfo.Slot != receiver && _session.ConnectionInfo.Slot == sender)
                 {
-                    Main.MessageQueue.SentItem(networkItem.Item, _session.Players.GetPlayerAlias(receiver));
+                    Main.MessageQueue.SentItem(_session.Items.GetItemName(networkItem.Item), _session.Players.GetPlayerAlias(receiver));
                 }
             }
         }
